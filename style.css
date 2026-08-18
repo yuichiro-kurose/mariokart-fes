@@ -1,0 +1,60 @@
+body {
+  background-color: #111;
+  color: white;
+  font-family: 'Arial Black', sans-serif;
+  overflow: hidden;
+  margin: 0;
+}
+
+#container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 50px;
+}
+
+.hidden {
+  opacity: 0;
+}
+
+/* キャラクターの枠組み */
+.character-row {
+  display: flex;
+  align-items: center;
+  width: 800px;
+  background: linear-gradient(90deg, rgba(255,0,0,0.8), transparent);
+  margin: 15px 0;
+  padding: 10px;
+  border-radius: 10px;
+  opacity: 0;
+  transform: translateX(-100vw); /* 画面外の左端に配置 */
+  transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.8s;
+}
+
+/* スライドインするアニメーション用クラス */
+.character-row.show {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.rank {
+  font-size: 48px;
+  font-weight: bold;
+  width: 100px;
+  text-align: center;
+  color: yellow;
+  text-shadow: 2px 2px 4px #000;
+}
+
+.char-img {
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+  margin: 0 30px;
+}
+
+.char-name {
+  font-size: 36px;
+  text-transform: uppercase;
+  text-shadow: 2px 2px 4px #000;
+}
