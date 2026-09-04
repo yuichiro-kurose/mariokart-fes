@@ -7,7 +7,7 @@ const charData = {
 
 const sleep = (ms) => new Promise(resolve => setTimeout(resolve, ms));
 
-// 追加: アニメーションを途中で中断するためのフラグ
+// アニメーションを途中で中断するためのフラグ
 let abortAnimation = false; 
 
 async function showResults(results) {
@@ -84,7 +84,7 @@ async function showResults(results) {
   exitMessage.style.opacity = '1';
 }
 
-// 追加: 画面を初期状態に戻す関数
+// 画面を初期状態に戻す関数
 function resetDisplay() {
   abortAnimation = true; // 進行中のアニメーションをストップ
 
@@ -103,7 +103,7 @@ function resetDisplay() {
   }
 }
 
-// 変更: ストレージのイベントリスナーにリセットの検知を追加
+// ストレージのイベントリスナーにリセットの検知を追加
 window.addEventListener('storage', (e) => {
   if (e.key === 'mk_trigger') {
     const results = JSON.parse(localStorage.getItem('mk_results'));

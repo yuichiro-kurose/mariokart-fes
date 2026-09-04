@@ -2,17 +2,17 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
-  <title>順位入力（裏方用）</title>
+  <title>input</title>
 </head>
 <body>
-  <h1>順位入力</h1>
+  <h1>順位入力（裏方用）</h1>
   <form id="rankForm">
     <label>1位: <select id="rank1"><option value="mario">マリオ</option><option value="luigi">ルイージ</option><option value="peach">ピーチ</option><option value="toad">キノピオ</option></select></label><br>
     <label>2位: <select id="rank2"><option value="mario">マリオ</option><option selected value="luigi">ルイージ</option><option value="peach">ピーチ</option><option value="toad">キノピオ</option></select></label><br>
     <label>3位: <select id="rank3"><option value="mario">マリオ</option><option value="luigi">ルイージ</option><option selected value="peach">ピーチ</option><option value="toad">キノピオ</option></select></label><br>
     <label>4位: <select id="rank4"><option value="mario">マリオ</option><option value="luigi">ルイージ</option><option value="peach">ピーチ</option><option selected value="toad">キノピオ</option></select></label><br>
     
-    <!-- 追加・変更: ボタンを並べて配置 -->
+    <!-- ボタンを並べて配置 -->
     <button type="button" onclick="saveRanks()">結果を送信</button>
     <button type="button" onclick="resetRanks()" style="color: red;">終了</button>
   </form>
@@ -32,7 +32,7 @@
       alert('順位を送信しました！表示画面を確認してください。');
     }
 
-    // 追加: 終了ボタンが押された時の処理
+    // 終了ボタンが押された時の処理
     function resetRanks() {
       // リセットをトリガーするためのフラグを保存
       localStorage.setItem('mk_reset_trigger', Date.now()); 
