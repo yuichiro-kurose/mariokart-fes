@@ -25,12 +25,14 @@ async function showResults(results) {
   document.getElementById('bgm').currentTime = 0;
   document.getElementById('bgm').play(); 
 
-  for (let i = 3; i >= 0; i--) {
-    // 中断フラグがtrueなら、以降の処理をキャンセルして関数を抜ける
+  // 順位の数字が大きい（下位）順に並び替え
+  results.sort((a, b) => b.rank - a.rank);
+
+  for (let i = 0; i < results.length; i++) {
     if (abortAnimation) return; 
 
-    const charKey = results[i];
-    const rank = i + 1;
+    const charKey = results[i].char;
+    const rank = results[i].rank;
 
     const row = document.createElement('div');
     row.className = 'character-row';
@@ -43,7 +45,7 @@ async function showResults(results) {
     resultsArea.prepend(row); 
 
     await sleep(50);
-    if (abortAnimation) return; // 待機後にも確認
+    if (abortAnimation) return;
     row.classList.add('show');
       
     const se = document.getElementById('se');
